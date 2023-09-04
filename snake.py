@@ -21,6 +21,14 @@ class Snake:
             self.snake_body.append(t)
 
 
+    def reset(self):
+        for body_part in self.snake_body:
+            body_part.goto(1000, 1000)
+        self.snake_body.clear()
+        self.create_snake()
+        self.head = self.snake_body[0]
+
+
     def move(self):
         for body_part in range(len(self.snake_body)-1, 0, -1):
             new_x = self.snake_body[body_part-1].xcor()
